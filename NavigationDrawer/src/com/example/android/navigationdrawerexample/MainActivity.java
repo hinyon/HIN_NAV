@@ -182,20 +182,19 @@ public class MainActivity extends FragmentActivity {
         setTitle(mPlanetTitles[position]);
         mDrawerLayout.closeDrawer(mDrawerList);*/
     	
-    	getSupportFragmentManager()
-		.beginTransaction()
-		.add(R.id.content_frame,
-				PageSlidingTabStripFragment.newInstance(),
-				PageSlidingTabStripFragment.TAG).commit();
     	
     	switch (position) {
 		case 0:
-			getSupportFragmentManager()
+			/*getSupportFragmentManager()
 					.beginTransaction()
 					.add(R.id.content_frame,
 							PageSlidingTabStripFragment.newInstance(),
-							PageSlidingTabStripFragment.TAG).commit();
+							PageSlidingTabStripFragment.TAG).commit();*/
+			PageSlidingTabStripFragment PS = new PageSlidingTabStripFragment();
+			getSupportFragmentManager().beginTransaction()
+			.add(R.id.content_frame, PS).commit();
 			break;
+			
 		default:
 
 			PlanetFragment fragment = new PlanetFragment();

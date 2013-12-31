@@ -13,12 +13,20 @@ import com.astuetz.PagerSlidingTabStrip;
 
 public class PageSlidingTabStripFragment extends Fragment {
 
-	public static final String TAG = PageSlidingTabStripFragment.class
+	//HIN:不明白newInstance写法的好处。
+	/*public static final String TAG = PageSlidingTabStripFragment.class
 			.getSimpleName();
 
 	public static PageSlidingTabStripFragment newInstance() {
 		return new PageSlidingTabStripFragment();
 	}
+	*/
+	
+	public PageSlidingTabStripFragment() {
+		// Empty constructor required for fragment subclasses
+	}
+	
+	///////
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
