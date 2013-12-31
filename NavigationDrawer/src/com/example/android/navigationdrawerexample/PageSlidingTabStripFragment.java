@@ -13,15 +13,19 @@ import com.astuetz.PagerSlidingTabStrip;
 
 public class PageSlidingTabStripFragment extends Fragment {
 
-	//HIN:不明白newInstance写法的好处。
-	/*public static final String TAG = PageSlidingTabStripFragment.class
+	/*HIN:newInstance()一般情况加不加没什么区别,不过一般都加上,这是主动将driverName载入虚拟机,成为运行于'全局'的实例,
+	如果只是driverName dn = new driverName();
+	那只有在调用此类时才会装载入虚拟机,运行完后可能会被虚拟机垃圾回*/
+	
+/*	public static final String TAG = PageSlidingTabStripFragment.class
 			.getSimpleName();
 
 	public static PageSlidingTabStripFragment newInstance() {
 		return new PageSlidingTabStripFragment();
-	}
-	*/
+	}*/
 	
+	
+	//先使用最简单的构造函数吧	
 	public PageSlidingTabStripFragment() {
 		// Empty constructor required for fragment subclasses
 	}
@@ -71,12 +75,11 @@ public class PageSlidingTabStripFragment extends Fragment {
 		public int getCount() {
 			return TITLES.length;
 		}
-
+		
+		//滚动栏时的正文Fragment
 		@Override
 		public Fragment getItem(int position) {
-			//这里写一个简单的Fragment
-			
-				return SuperAwesomeCardFragment.newInstance(position);
+			return SuperAwesomeCardFragment.newInstance(position);
 				
 		}
 
