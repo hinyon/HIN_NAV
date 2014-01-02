@@ -185,14 +185,13 @@ public class MainActivity extends FragmentActivity {
     	
     	switch (position) {
 		case 0:
-			/*getSupportFragmentManager()
-					.beginTransaction()
-					.add(R.id.content_frame,
-							PageSlidingTabStripFragment.newInstance(),
-							PageSlidingTabStripFragment.TAG).commit();*/
+			
+			//第一步创建这个特定Fragment类的示例（这个Fragment类PageSlidingTabStripFragment extends Fragment，并且在PageSlidingTabStripFragment.java中import中最好使用的是support.v4.app.Fragment才能在main中被识别为Fragment，被getSupportFragmentManager使用）
+			//第二步将它通过getSupportFragmentManager()（似乎需要在support.v4.app.FragmentActivity）替换到界面即可
 			PageSlidingTabStripFragment PS = new PageSlidingTabStripFragment();
 			getSupportFragmentManager().beginTransaction()
 			.add(R.id.content_frame, PS).commit();
+			//这里可能写的不够严谨，如果已经初始化过可以用replace。但是这样只用add也能跑。
 			break;
 			
 		default:
@@ -207,7 +206,8 @@ public class MainActivity extends FragmentActivity {
 			break;
 		}
 
-		mDrawerLayout.closeDrawer(mDrawerList);
+    	//无论如何关闭左侧菜单
+    	mDrawerLayout.closeDrawer(mDrawerList);
     	
     	/*PageSlidingTabStripFragment fragment = new PageSlidingTabStripFragment();
     	FragmentManager fragmentManager = getSupportFragmentManager();
